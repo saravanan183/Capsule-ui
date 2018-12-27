@@ -1,0 +1,35 @@
+<div class="container">
+    <a class="btn btn=primary" routerLink="/add-tasks">Add Tasks</a>&nbsp;&nbsp;
+    <a class="btn btn=primary" routerLink="/list-tasks">View Tasks</a>
+    <form [formGroup]="groupTasks" (ngSubmit)="createTasks()" novalidate>
+      <div *ngIf="validMessage != ''">
+        <h3 class="has-info">{{message}}</h3>
+      </div>
+      <div class="form-group">
+        <label>Task</label>
+        <input type="text" class="form-control" formControlName="task" required autofocus/>
+      </div>
+      <div class="form-group">
+        <label>Priority</label>
+        <input type="range" min="0" max="30" value="10" class="form-control" formControlName="priority" required/>
+      </div>
+      <div class="form-group">
+        <label>Parent Task</label>
+        <input type="text" class="form-control" formControlName="parentTasks" required/>
+      </div>
+      <div class="form-group">
+        <label>Start Date</label>
+        <input type="date" class="form-control" formControlName="startDate" required/>
+      </div>
+      <div class="form-group">
+        <label>End Date</label>
+        <input type="date" class="form-control" formControlName="endDate" required/>
+      </div>
+      <div>
+      <div>
+        <button type="submit" class="btn btn-primary" >Add Task</button>
+        <button type="button" class="btn btn-primary" (click)="resetTasks()">Reset</button>
+      </div>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <a class="btn btn=primary" routerLink="">Add Tasks</a>&nbsp;&nbsp;
+  <a class="btn btn=primary">View Tasks</a>
+
+   <table class="table table-bordered table-inverse">
+    <tr>
+      <th>TaskID</th>
+      <th>Tasks</th>
+      <th>ParentTasks</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Priority</th>
+    </tr>
+    <tr *ngFor="let tasks of tasksList ">
+        <td>
+            <a [routerLink]="['/edit-tasks',tasks.taskId]">{{tasks.taskId}}</a>
+          </td>
+      <td>
+        {{tasks.tasks}}
+     </td>
+      <td>
+        {{tasks.parentTask}}
+      </td>
+      <td>
+        {{tasks.startDate}}
+      </td>
+      <td>
+        {{tasks.endDate}}
+      </td>
+      <td>
+        {{tasks.priority}}
+      </td>
+      
+    </tr>
+  </table>
+</div>
